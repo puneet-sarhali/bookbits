@@ -6,7 +6,7 @@ const cabinet = localFont({
 const client = require("@sendgrid/client");
 client.setApiKey(process.env.SENDGRID_API_KEY);
 
-export default async function Example() {
+export default async function Newsletter() {
   async function submitEmail(formData: FormData) {
     "use server";
     const data = {
@@ -61,6 +61,7 @@ export default async function Example() {
             </h2>
 
             <div className="mt-4 flex max-w-md gap-x-4">
+              {/* @ts-expect-error Server Component */}
               <form action={submitEmail}>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
