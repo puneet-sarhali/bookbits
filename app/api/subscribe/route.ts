@@ -16,6 +16,5 @@ export async function POST(request: Request) {
     body: data,
   };
   const [response, body] = await client.request(sendgrid_request);
-  console.log(response.statusCode);
   return new Response(null, { status: response.statusCode });
 }
