@@ -2,10 +2,11 @@ const client = require("@sendgrid/client");
 client.setApiKey(process.env.SENDGRID_API_KEY);
 
 export async function POST(request: Request) {
+  const { email } = await request.json();
   const data = {
     contacts: [
       {
-        email: "pssarhali@gmail.com",
+        email,
       },
     ],
   };
@@ -15,6 +16,6 @@ export async function POST(request: Request) {
     body: data,
   };
   const [response, body] = await client.request(sendgrid_request);
-  console.log(body);
-  return new Response("Hello, Next.js!");
+  console.log(response.statusCode);
+  return new Response(null, { status: response.statusCode });
 }
