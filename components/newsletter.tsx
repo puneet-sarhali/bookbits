@@ -32,7 +32,7 @@ export default function Newsletter() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>, e: any) {
-    const res = await fetch("https://bookbit.vercel.app/api/subscribe", {
+    const res = await fetch("https://bookbits.app/api/subscribe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
