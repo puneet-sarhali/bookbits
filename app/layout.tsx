@@ -15,7 +15,7 @@ const cabinet = localFont({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Bookbits: Curated short reads for busy people",
+  title: "Bookbit: Curated short reads for busy people",
   description:
     "Standalone chapters and essays from non-fiction, perfect for curious minds who love to learn without the commitment of a full book.",
 };
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <header>
               <div className="flex items-center justify-between px-6">
                 <nav className="mr-auto text-sm font-medium space-x-6">
-                  <Link href="/">Bookbits</Link>
+                  <Link href="/">Bookbit</Link>
                 </nav>
                 <ModeToggle />
               </div>
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="max-w-3xl mx-auto py-10 px-8 dark:text-neutral-400 text-neutral-600">
               <div className="flex items-center justify-between">
                 <div className="text-sm font-medium space-x-6">
-                  <Link href="/">Bookbits</Link>
+                  <Link href="/">Bookbit</Link>
                 </div>
                 <div className="text-sm font-medium space-x-6">
                   <p>© 2023</p>
