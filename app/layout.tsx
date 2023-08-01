@@ -7,6 +7,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import localFont from "next/font/local";
 import Newsletter from "@/components/newsletter";
 import { Toaster } from "@/components/ui/toaster";
+import Script from "next/script";
 
 const cabinet = localFont({
   src: "../public/CabinetGrotesk-Variable.ttf",
@@ -61,6 +62,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Analytics />
         </ThemeProvider>
       </body>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-S2SV8LYSHJ" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-S2SV8LYSHJ');
+        `}
+      </Script>
     </html>
   );
 }
