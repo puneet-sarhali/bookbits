@@ -3,12 +3,16 @@ import ComingSoon from "@/components/coming-soon";
 import Link from "next/link";
 import localFont from "next/font/local";
 import Image from "next/image";
+import { spawn } from "child_process";
 
 const cabinet = localFont({
   src: "../public/CabinetGrotesk-Variable.ttf",
 });
 
 export default function Home() {
+  allPosts.sort((a, b) => {
+    return b.id - a.id;
+  });
   return (
     <div className="dark:prose-invert">
       <div className="my-28 mx-4">
@@ -22,6 +26,20 @@ export default function Home() {
       </div>
       {allPosts.map((post) => (
         <article key={post._id}>
+          {post.id === allPosts.length && (
+            <h2
+              className={`${cabinet.className} ml-4 text-xl text-neutral-700 dark:text-neutral-400`}
+            >
+              This week&#39;s read
+            </h2>
+          )}
+          {post.id === allPosts.length - 1 && (
+            <h2
+              className={`${cabinet.className} ml-4 mt-12 text-xl text-neutral-700 dark:text-neutral-400`}
+            >
+              Previous reads
+            </h2>
+          )}
           <Link href={post.slug}>
             <div className="flex rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-colors p-4">
               <Image
@@ -33,7 +51,7 @@ export default function Home() {
               ></Image>
               <div>
                 <h2 className="text-neutral-900 dark:text-neutral-50 font-medium">
-                  {post.title}
+                  {post.title}{" "}
                 </h2>
                 <p className="text-neutral-700 dark:text-neutral-400 text-sm">
                   {post.book}
